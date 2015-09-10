@@ -26,11 +26,11 @@ class Ship
         when 'N'
           @coords << [ @location[0], (@location[1] - i) ]
         when 'E'
-          @coords << [ (@location[0] - i), @location[1] ]
+          @coords << [ (@location[0] + i), @location[1] ]
         when 'S'
           @coords << [ @location[0], (@location[1] + i) ]
         when 'W'
-          @coords << [ (@location[0] + i), @location[1] ]
+          @coords << [ (@location[0] - i), @location[1] ]
         end
       end
     end

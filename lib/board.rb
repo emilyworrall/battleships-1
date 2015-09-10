@@ -1,4 +1,5 @@
 require_relative 'ship'
+require_relative 'submarine'
 
 class Board
   DEFAULT_BOARD_SIZE = [5,5]
@@ -19,6 +20,10 @@ class Board
     ship.direct direction
     ship.coordinates
     ship.on_board(@board_size)
+     true
+
+
+
     @ships.each do |s|
         fail 'Ships overlap' if self.overlap?(ship, s)
     end
@@ -29,11 +34,12 @@ class Board
     s1.coords.each do |a|
         s2.coords.each do |b|
           if b==a
-              return true
+            return true
+          else
+            return false
           end
         end
     end
-    false
   end
 
   def receive_fire(hit_coords)
