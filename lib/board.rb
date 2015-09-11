@@ -20,10 +20,6 @@ class Board
     ship.direct direction
     ship.coordinates
     ship.on_board(@board_size)
-     true
-
-
-
     @ships.each do |s|
         fail 'Ships overlap' if self.overlap?(ship, s)
     end
