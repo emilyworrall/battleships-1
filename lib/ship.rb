@@ -19,6 +19,13 @@ class Ship
     @direction = direction
   end
 
+  def reset
+    if @coords.any?
+      @coords.clear
+    else
+    end
+  end
+
   def coordinates
     if @coords == []
       @size.times do |i|

@@ -21,21 +21,24 @@ class Board
     ship.coordinates
     ship.on_board(@board_size)
     @ships.each do |s|
-        fail 'Ships overlap' if self.overlap?(ship, s)
+      fail 'Ships overlap' if self.overlap?(ship, s)
+      ship.reset
+
     end
     @ships << ship
   end
 
   def overlap? s1, s2
-    s1.coords.each do |a|
-        s2.coords.each do |b|
-          if b==a
-            return true
-          else
-            return false
-          end
-        end
-    end
+    (s1.coords & s2.coords).any?
+    # s1.coords.each do |a|
+    #     s2.coords.each do |b|
+    #       if b[0]==a[0] && b[1]==a[1]
+          #   return true
+          # else
+          #   return false
+          # end
+        # end
+    # end
   end
 
   def receive_fire(hit_coords)

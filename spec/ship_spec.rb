@@ -7,6 +7,8 @@ describe Ship do
   #                                     direction: "South",
   #                                     size: 2)}
 
+  context "Placing a ship" do
+
   it "responds to location" do
     expect(subject).to respond_to :location
   end
@@ -14,6 +16,7 @@ describe Ship do
   it "responds to locate" do
     expect(subject).to respond_to(:locate).with(1).argument
   end
+
 
   it "is located at the assigned location" do
     subject.locate location
@@ -29,6 +32,11 @@ describe Ship do
     expect(subject.direction).to eq direction
   end
 
+  it "coordinates reset if cannot be placed" do
+    subject.reset
+    expect(subject.coords).to be_empty
+  end
+end
   describe '#new' do
 
     it 'accepts size as a parameter' do
